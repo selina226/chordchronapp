@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import "./email.css";
 import emailjs from "@emailjs/browser";
-import config from "../config";
 
 function EmailForm() {
   const [email, setEmail] = useState(localStorage.getItem("savedEmail") || "");
@@ -25,7 +24,7 @@ function EmailForm() {
       const currentMinute = currentTime.getMinutes();
 
       // Check if current time is scheduled send time
-      if (currentHour === 18 && currentMinute === 10) {
+      if (currentHour === 19 && currentMinute === 6) {
         sendEmail(); // Call function to send email if time is matched
       }
     }, 30000); // Check every 60000 milliseconds
@@ -37,7 +36,7 @@ function EmailForm() {
   const sendEmail = () => {
     
     emailjs
-    .sendForm(config.EMAILJS_SERVICE_ID,config.EMAILJS_TEMPLATE_ID,'#myForm',{publicKey: config.EMAILJS_PUBLIC_KEY}
+    .sendForm(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, "#myForm", {publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY},
       )
       .then((response) => {
         console.log("Email sent!", response);
