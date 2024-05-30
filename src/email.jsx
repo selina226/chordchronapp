@@ -24,7 +24,7 @@ function EmailForm() {
       const currentMinute = currentTime.getMinutes();
 
       // Check if current time is scheduled send time
-      if (currentHour === 19 && currentMinute === 6) {
+      if (currentHour === 19 && currentMinute === 57) {
         sendEmail(); // Call function to send email if time is matched
       }
     }, 30000); // Check every 60000 milliseconds
@@ -35,8 +35,12 @@ function EmailForm() {
   // Function to send email to user
   const sendEmail = () => {
     
+      
     emailjs
-    .sendForm(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, "#myForm", {publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY},
+      .sendForm(
+        'service_yekynmh',
+        'template_xbabcda', "#myForm",
+      {publicKey: 'ljZnFdgpXGVUbkM0v'},
       )
       .then((response) => {
         console.log("Email sent!", response);
