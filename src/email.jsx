@@ -25,7 +25,7 @@ function EmailForm() {
       const currentMinute = currentTime.getMinutes();
 
       // Check if current time is scheduled send time
-      if (currentHour === 17 && currentMinute === 49) {
+      if (currentHour === 18 && currentMinute === 10) {
         sendEmail(); // Call function to send email if time is matched
       }
     }, 30000); // Check every 60000 milliseconds
